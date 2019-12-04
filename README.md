@@ -5,6 +5,7 @@
 _Started Thursday November 28th, Wrapped up Tuesday Dec 3rd_
 
 [Frontend Repo](https://github.com/Tzinov15/messaging-app-frontend) (React 16 (CRA), TypeScript, Hosted on Netlify )
+[![Netlify Status](https://api.netlify.com/api/v1/badges/70a17889-81a2-4ffa-8fd0-8f670f8b6cf8/deploy-status)](https://app.netlify.com/sites/hopeful-beaver-35d7aa/deploys)
 
 [Backend Repo](https://github.com/Tzinov15/messaging-app-backend) (Node/Express, WebSockets, TypeScript, MongoDB, Hosted on Heroku, Using Self-Signed Certs)
 
