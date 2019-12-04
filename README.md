@@ -8,6 +8,8 @@ _Started Thursday November 28th, Wrapped up Tuesday Dec 3rd_
 
 [Backend Repo](https://github.com/Tzinov15/messaging-app-backend) (Node/Express, WebSockets, TypeScript, MongoDB, Hosted on Heroku, Using Self-Signed Certs)
 
+[EDIT] *The repos above have had 2.0 branches added since. I wanted to keep `master` at what the project looked like when I submitted the assignment (around noon on Dec 4th) but wanted to continue working on the project as far as adding tests, cleaning up code, etc. To see the latest and greatest of the project checkout the `2.0` branches on both the frontend and backend repos*
+
 # Live Link
 
 # [`https://hopeful-beaver-35d7aa.netlify.com/`](https://hopeful-beaver-35d7aa.netlify.com/)
