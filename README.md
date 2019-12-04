@@ -64,6 +64,7 @@ And this diagram is a slightly closer view of how data moves and more specifical
 - Timezone on the server is odd/not lined up with the client (timezone data formats aren't really handled)
 - Text input box doesn't grow as you type your message. Ideally it would grow like a textarea element and grow vertically
 - UI starts lagging after a lot of messages are rendered
+- Chat Message board doesn't update as well as it needs to - when a client disconnects the chat history gets weird and refreshes oddly. Also, when a client disconnects, it should disallow any other users chatting with that client from sending them messages
 - When a client disconnects, if you have the chat window open, you can still send a message to this client. By doing so, the `recipientSocket.send()` call fails and ultimately brings down the server, causing all clients to lose their socket connections, causing havoc. 2 steps to fix this:
 
   - One, have the server be smarter and if detects that the recipient client has closed down despite having a message for that user, respond back to author with a message indicating the client is no longer available instead of imploding
