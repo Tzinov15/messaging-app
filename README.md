@@ -4,7 +4,7 @@
 
 [Frontend Repo](https://github.com/Tzinov15/messaging-app-frontend) (React 16 (CRA), TypeScript, Hosted on Netlify )
 
-[Backend Repo](https://github.com/Tzinov15/messaging-app-frontend)(Node/Express, WebSockets, TypeScript, MongoDB, Hosted on Herok, Using Self-Signed Certs)
+[Backend Repo](https://github.com/Tzinov15/messaging-app-backend) (Node/Express, WebSockets, TypeScript, MongoDB, Hosted on Herok, Using Self-Signed Certs)
 
 # Live Link
 
