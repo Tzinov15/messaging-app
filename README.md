@@ -2,6 +2,8 @@
 
 ![](./app-screenshot.png)
 
+_Started Thursday November 28th, Wrapped up Tuesday Dec 3rd_
+
 [Frontend Repo](https://github.com/Tzinov15/messaging-app-frontend) (React 16 (CRA), TypeScript, Hosted on Netlify )
 
 [Backend Repo](https://github.com/Tzinov15/messaging-app-backend) (Node/Express, WebSockets, TypeScript, MongoDB, Hosted on Heroku, Using Self-Signed Certs)
@@ -40,12 +42,14 @@ And this diagram is a slightly closer view of how data moves and more specifical
 - Implement [IO Types](https://github.com/gcanti/io-ts). This is a run-time type-checking library that allows any type mismatches between domain seams (UI to API, API to DB, etc) that cannot be _compile time_ verified to be verified in a single point of failure at runtime. It's a library I've used numerous times before and has saved me countless troubles tracking down sneaky changes in underlying data contract changes.
 - CI/CD Pipeline. Would pull in an E2E testing library like Cypress and have future development be driven through PRs that require automation to pass, code-coverage to not have dipped, etc so that I can confidently refactor and know that I won't break prod
 - Use [React Storybook](https://storybook.js.org/) to build out a reusable component library and better stress test individual UI components (username under avatar that is too big, loading states, error states, etc)
+- Performance Testing. I would like to set up a performance test runner that can automatically spin up hundreds of client sockets that each fire in hundreds of messages per second to help identify bottlenecks. Do I need to throttle the functions that write to the database? Do I need to throttle renders on incoming messages to the UI? Can I get away with just one server? How does the `wss.clients` object stored in memory behave past a certain point?
+- Refactor. I'm a big believer that code never gets written perfectly the first time and that revisiting an app after a while allows you to see different patterns, better approaches, and better abstractions that you may not have noticed the first time. I would go back to the UI and chunk out a lot more components, isolate CSS to be more tightly coupled to the specific component (would likely have pulled in [Styled Components](https://www.styled-components.com/), and separated more of the presentational/rendering logic from the data handling logic. On the server side I'd break out a lot of the helper utility functions into separate files, and abstracted more of the functionality that takes place in the socket handlers
 
 # Things I wish I had done differently
 
 - Done more testing during the development instead of just adding more features. I was extremely eager and excited when I saw the write up and let feature-creep sneak in features that came at the cost of more testing. Always a balance between velocity and testing
 - Understand / learn more about scaling problems. What changes in some of the upfront design would have to happen if this was meant for 100,000 users? 1,000,000 users? 1 billion users?
-- Dived into Serverless Architecture / Lamda functions. At the beginning I was torn between:
+- Dived into Serverless Architecture / Lambda functions. At the beginning I was torn between:
 
   - diving into WebSockets and having a persistent server with real-time data on the client or
   - forgoing WebSockets, using a naive poll on the client-side, and setting up a server-less API using AWS Lambdas (the option to both was out there, seemed very daunting for this project however)
@@ -74,7 +78,7 @@ And this diagram is a slightly closer view of how data moves and more specifical
   **Running the UI Locally:**  
   `git clone https://github.com/Tzinov15/messaging-app-frontend.git`  
   `yarn start`  
-  Vist `localhost:3000`
+  Visit `localhost:3000`
 
   This will point the UI to the Heroku instance of the WebSocketServer. To point it to a local version, change  
   `wss://secure-shelf-01153.herokuapp.com` to `ws://localhost:9009`
