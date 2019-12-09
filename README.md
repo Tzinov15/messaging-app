@@ -7,8 +7,11 @@ _Started Thursday November 28th, Wrapped up Tuesday Dec 3rd (tagged as 4.0), v2.
 🎉 My excitement for this project has continued and so I am still actively adding to app! I've been reorganizing code, adding features, and cleaning up known bugs. To see the state of this project upon initial completion (and submission) see the `4.0` tags of the respective projects [frontend-4.0](https://github.com/Tzinov15/messaging-app-frontend/tree/v4.0) and [backend-4.0](https://github.com/Tzinov15/messaging-app-backend/tree/v4.0)
 
 [Frontend Repo](https://github.com/Tzinov15/messaging-app-frontend) (React 16 (CRA), TypeScript, Hosted on Netlify )
+[![Netlify Status](https://api.netlify.com/api/v1/badges/70a17889-81a2-4ffa-8fd0-8f670f8b6cf8/deploy-status)](https://app.netlify.com/sites/hopeful-beaver-35d7aa/deploys)
 
 [Backend Repo](https://github.com/Tzinov15/messaging-app-backend) (Node/Express, WebSockets, TypeScript, MongoDB, Hosted on Heroku, Using Self-Signed Certs)
+
+[EDIT] *The repos above have had 2.0 branches added since. I wanted to keep `master` at what the project looked like when I submitted the assignment (around noon on Dec 4th) but wanted to continue working on the project as far as adding tests, cleaning up code, etc. To see the latest and greatest of the project checkout the `2.0` branches on both the frontend and backend repos*
 
 # Live Link
 
