@@ -2,7 +2,7 @@
 
 ![](./demo.png)
 
-_Started Thursday November 28th, Wrapped up Tuesday Dec 3rd (tagged as 4.0), v2.0 worked on since_
+_Started Thursday November 28th, Wrapped up Tuesday Dec 3rd (tagged as 4.0), next version (v5.0?) worked on since_
 
 🎉 My excitement for this project has continued and so I am still actively adding to app! I've been reorganizing code, adding features, and cleaning up known bugs. To see the state of this project upon initial completion (and submission) see the `4.0` tags of the respective projects [frontend-4.0](https://github.com/Tzinov15/messaging-app-frontend/tree/v4.0) and [backend-4.0](https://github.com/Tzinov15/messaging-app-backend/tree/v4.0)
 
