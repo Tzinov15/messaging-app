@@ -1,8 +1,10 @@
 # Messaging App
 
-![](./app-screenshot.png)
+![](./demo.png)
 
-_Started Thursday November 28th, Wrapped up Tuesday Dec 3rd_
+_Started Thursday November 28th, Wrapped up Tuesday Dec 3rd (tagged as 4.0), v2.0 worked on since_
+
+🎉 My excitement for this project has continued and so I am still actively adding to app! I've been reorganizing code, adding features, and cleaning up known bugs. To see the state of this project upon initial completion (and submission) see the `4.0` tags of the respective projects [frontend-4.0](https://github.com/Tzinov15/messaging-app-frontend/tree/v4.0) and [backend-4.0](https://github.com/Tzinov15/messaging-app-backend/tree/v4.0)
 
 [Frontend Repo](https://github.com/Tzinov15/messaging-app-frontend) (React 16 (CRA), TypeScript, Hosted on Netlify )
 
@@ -10,7 +12,7 @@ _Started Thursday November 28th, Wrapped up Tuesday Dec 3rd_
 
 # Live Link
 
-# [`https://hopeful-beaver-35d7aa.netlify.com/`](https://hopeful-beaver-35d7aa.netlify.com/)
+# [`www.messengy.com`](https://www.messengy.com)
 
 # Where to Start
 
@@ -58,47 +60,47 @@ And this diagram is a slightly closer view of how data moves and more specifical
 
 # Known Bugs / Issues
 
-- Message board doesn't scroll as you type, you lose sight of the input chat field as more messages pile up
+- ~~Message board doesn't scroll as you type, you lose sight of the input chat field as more messages pile up~~ fixed since
 - Handling simultaneous socket connections from the same user. A new "user" gets "generated" and "saved" every time a new web app opens. The user is represented by a random avatar and username that get generated when the web app first starts up. This metadata gets sent to the websocket server by virtue of URL parameters in the wss socket connect string. And it gets persisted on the browser side in localStorage. Problems arise when multiple client sockets are opened up under the same username. The UI displays them as multiple users because there multiple sockets when in reality they should be represented as a single user
 - No automated tests. As mentioned above, the focus the last week was on features and velocity to validate the feasibility of the technical direction. If I had more time, I would establish a suite of lower level unit tests (tests around some of my helper functions both on the backend and frontend), API tests (set up an automated web socket client that connects to the server, fires in messages, validates for a response), and full E2E tests (Cypress, spin up the UI and API and validate that an end to end test works with sending messages to the Server and getting responses displayed correctly)
-- Timezone on the server is odd/not lined up with the client (timezone data formats aren't really handled)
+- ~~Timezone on the server is odd/not lined up with the client (timezone data formats aren't really handled)~~ fixed since
 - Text input box doesn't grow as you type your message. Ideally it would grow like a textarea element and grow vertically
-- UI starts lagging after a lot of messages are rendered
-- Chat Message board doesn't update as well as it needs to - when a client disconnects the chat history gets weird and refreshes oddly. Also, when a client disconnects, it should disallow any other users chatting with that client from sending them messages
-- When a client disconnects, if you have the chat window open, you can still send a message to this client. By doing so, the `recipientSocket.send()` call fails and ultimately brings down the server, causing all clients to lose their socket connections, causing havoc. 2 steps to fix this:
+- ~~UI starts lagging after a lot of messages are rendered~~
+- ~~Chat Message board doesn't update as well as it needs to - when a client disconnects the chat history gets weird and refreshes oddly. Also, when a client disconnects, it should disallow any other users chatting with that client from sending them messages~~ fixed since
+- ~~When a client disconnects, if you have the chat window open, you can still send a message to this client. By doing so, the `recipientSocket.send()` call fails and ultimately brings down the server, causing all clients to lose their socket connections, causing havoc. 2 steps to fix this:~~ fixed since
 
   - One, have the server be smarter and if detects that the recipient client has closed down despite having a message for that user, respond back to author with a message indicating the client is no longer available instead of imploding
-  - Two, have the client UI remove the chat screen when it senses a client has disconnect instead of leaving it up and allowing the user to send a message to a non-existent user
+  - ~~Two, have the client UI remove the chat screen when it senses a client has disconnect instead of leaving it up and allowing the user to send a message to a non-existent user~~
 
-  # Building Locally
+# Building Locally
 
-  All 3 components of this app (React Web App, Express Node Server, MongoDB instance) are hosted in the cloud (Netlify, Heroku, Mongodb Atlas).
+All 3 components of this app (React Web App, Express Node Server, MongoDB instance) are hosted in the cloud (Netlify, Heroku, Mongodb Atlas).
 
-  **The easiest way to use the app is to simply use the hosted [App](https://hopeful-beaver-35d7aa.netlify.com/)!**
+**The easiest way to use the app is to simply use the hosted [App](https://www.messengy.com/)!**
 
-  However, it is still possible to run locally.
+However, it is still possible to run locally.
 
-  **Running the UI Locally:**  
-  `git clone https://github.com/Tzinov15/messaging-app-frontend.git`  
-  `yarn start`  
-  Visit `localhost:3000`
+**Running the UI Locally:**  
+ `git clone https://github.com/Tzinov15/messaging-app-frontend.git`  
+ `yarn start`  
+ Visit `localhost:3000`
 
-  This will point the UI to the Heroku instance of the WebSocketServer. To point it to a local version, change  
-  `wss://secure-shelf-01153.herokuapp.com` to `ws://localhost:9009`
+This will point the UI to the Heroku instance of the WebSocketServer. To point it to a local version, change  
+ `wss://secure-shelf-01153.herokuapp.com` to `ws://localhost:9009`
 
-  inside of `Main.tsx`
+inside of `Main.tsx`
 
-  **Running the WS Server Locally:**  
-  `git clone https://github.com/Tzinov15/messaging-app-backend.git`  
-  Create `.env` file with:
+**Running the WS Server Locally:**  
+ `git clone https://github.com/Tzinov15/messaging-app-backend.git`  
+ Create `.env` file with:
 
-  ```bash
-  NODE_ENV=development
-  SERVER_PORT=9191
-  MONGO_USER=messaging-app
-  PORT=9090
-  MONGO_PASSWORD=<password> # I can provide DB password if needed
-  MONGO_PATH=@messaging-app-backend-wgo7f.mongodb.net/messaging-app-backend?retryWrites=true&w=majority&authSource=admin
-  ```
+```bash
+NODE_ENV=development
+SERVER_PORT=9191
+MONGO_USER=messaging-app
+PORT=9090
+MONGO_PASSWORD=<password> # I can provide DB password if needed
+MONGO_PATH=@messaging-app-backend-wgo7f.mongodb.net/messaging-app-backend?retryWrites=true&w=majority&authSource=admin
+```
 
-  `yarn start`
+`yarn start`
